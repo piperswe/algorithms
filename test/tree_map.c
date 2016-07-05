@@ -13,17 +13,17 @@
 
 void test_tree_map(void) {
     srand(TIME);
+    int helloWorld = rand();
+    int secondElement = rand();
 #ifdef TIMER
     clock_t start = TIME;
 #endif
     for (uint32_t i = 0; i < RUNS; i++) {
         map_t *map = tree_map_create();
-        int helloWorld = rand();
         tree_map_set(map, helloWorld, "Hello, world!");
 #ifdef ASSERT
         assert(strcmp((char *) tree_map_get(map, helloWorld), "Hello, world!") == 0);
 #endif
-        int secondElement = rand();
         tree_map_set(map, secondElement, "This is the second element in the map");
 #ifdef ASSERT
         assert(strcmp((char *) tree_map_get(map, helloWorld), "Hello, world!") == 0);
