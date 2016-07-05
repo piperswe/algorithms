@@ -3,7 +3,6 @@
 //
 
 #include "stack.h"
-#include <stdio.h>
 
 algo_stack *stack_create() {
     algo_stack *new = malloc(sizeof(algo_stack));
