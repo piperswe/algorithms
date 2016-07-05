@@ -6,7 +6,7 @@
 
 #include <stdint.h>
 #include <string.h>
-#include <printf.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include "hash_map.h"
 #include "../hash_map.h"
