@@ -15,7 +15,7 @@ void test_hash_map(void) {
     clock_t start = TIME;
 #endif
     for (uint32_t i = 0; i < RUNS; i++) {
-        hash_map *map = hash_map_create("hi", strlen("hi") + 1, NULL);
+        map_t *map = hash_map_create("hi", strlen("hi") + 1, NULL);
         hash_map_set(map, "hi", strlen("hi") + 1, "Hello, world!");
 #ifdef ASSERT
         assert(strcmp((char *) hash_map_get(map, "hi", strlen("hi") + 1), "Hello, world!") == 0);

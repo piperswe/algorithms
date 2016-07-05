@@ -8,8 +8,8 @@
 #define SIGNUM(x) ((x) > 0) - ((x) < 0)
 #define COMPARE(a, b) SIGNUM((a) - (b))
 
-tree_map *tree_map_create(uint64_t starting_key, void *starting_value) {
-    tree_map *new_map = (tree_map *) malloc(sizeof(tree_map));
+map_t *tree_map_create(uint64_t starting_key, void *starting_value) {
+    map_t *new_map = (map_t *) malloc(sizeof(map_t));
     if (new_map == NULL) {
         return NULL;
     }
@@ -20,7 +20,7 @@ tree_map *tree_map_create(uint64_t starting_key, void *starting_value) {
     return new_map;
 }
 
-void tree_map_set(tree_map *map, uint64_t key, void *value) {
+void tree_map_set(map_t *map, uint64_t key, void *value) {
     switch (COMPARE(map->key, key)) {
         case 1:
             if (map->right == NULL) {
@@ -41,7 +41,7 @@ void tree_map_set(tree_map *map, uint64_t key, void *value) {
     }
 }
 
-void *tree_map_get(tree_map *map, uint64_t key) {
+void *tree_map_get(map_t *map, uint64_t key) {
     switch (COMPARE(map->key, key)) {
         case 1:
             if (map->right == NULL) {

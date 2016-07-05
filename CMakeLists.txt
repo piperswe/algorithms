@@ -3,7 +3,7 @@ project(algorithms)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(HEADERS tree_map.h hash_map.h)
+set(HEADERS tree_map.h hash_map.h map.h)
 set(SOURCE_FILES tree_map.c hash_map.c ${HEADERS})
 set(TEST_FILES test/tree_map.c test/test.c test/hash_map.c test/hash_map.h test/config.h)
 add_executable(test_algorithms ${SOURCE_FILES} ${TEST_FILES})

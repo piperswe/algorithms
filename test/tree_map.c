@@ -15,7 +15,7 @@ void test_tree_map(void) {
     clock_t start = TIME;
 #endif
     for (uint32_t i = 0; i < RUNS; i++) {
-        tree_map *map = tree_map_create(0, NULL);
+        map_t *map = tree_map_create(0, NULL);
         tree_map_set(map, 0, (void *) "Hello, world!");
 #ifdef ASSERT
         assert(strcmp((char *) tree_map_get(map, 0), "Hello, world!") == 0);

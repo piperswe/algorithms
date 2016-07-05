@@ -6,14 +6,12 @@
 #define ALGORITHMS_HASH_MAP_H
 
 #include <stddef.h>
-#include "tree_map.h"
+#include "map.h"
 
-typedef tree_map hash_map;
+map_t *hash_map_create(void *starting_key, size_t starting_key_length, void *starting_value);
 
-hash_map *hash_map_create(void *starting_key, size_t starting_key_length, void *starting_value);
+void hash_map_set(map_t *map, void *key, size_t key_length, void *value);
 
-void hash_map_set(hash_map *map, void *key, size_t key_length, void *value);
-
-void *hash_map_get(hash_map *map, void *key, size_t key_length);
+void *hash_map_get(map_t *map, void *key, size_t key_length);
 
 #endif //ALGORITHMS_HASH_MAP_H
