@@ -15,6 +15,6 @@
 
 #include <time.h>
 #define TIME clock()
-#define RUNS (1000000)
+#define RUNS (10000000)
 
 #endif //ALGORITHMS_CONFIG_H

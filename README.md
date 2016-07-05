@@ -1,4 +1,4 @@
-# Algorithms
+# Algorithms [![Build Status](https://travis-ci.org/zebMcCorkle/algorithms.svg?branch=master)](https://travis-ci.org/zebMcCorkle/algorithms)
 ## Poorly-written algorithm implementations
 
 ## License
