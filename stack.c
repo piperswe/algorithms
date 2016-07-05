@@ -32,8 +32,8 @@ void stack_push(algo_stack *stack, void *value) {
         stack->value = value;
         stack->set = true;
     } else {
-        algo_stack *newTop = malloc(sizeof(stack_t));
-        algo_stack *oldTop = malloc(sizeof(stack_t));
+        algo_stack *newTop = malloc(sizeof(algo_stack));
+        algo_stack *oldTop = malloc(sizeof(algo_stack));
         *oldTop = *stack;
         newTop->value = value;
         newTop->next = oldTop;
