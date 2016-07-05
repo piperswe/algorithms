@@ -7,23 +7,34 @@
 #include <stdint.h>
 #include <string.h>
 #include <printf.h>
+#include <stdlib.h>
 #include "tree_map.h"
 #include "../tree_map.h"
 
 void test_tree_map(void) {
+    srand(TIME);
 #ifdef TIMER
     clock_t start = TIME;
 #endif
     for (uint32_t i = 0; i < RUNS; i++) {
-        map_t *map = tree_map_create(0, NULL);
-        tree_map_set(map, 0, (void *) "Hello, world!");
+        map_t *map = tree_map_create();
+        int helloWorld = rand();
+        tree_map_set(map, helloWorld, "Hello, world!");
 #ifdef ASSERT
-        assert(strcmp((char *) tree_map_get(map, 0), "Hello, world!") == 0);
+        assert(strcmp((char *) tree_map_get(map, helloWorld), "Hello, world!") == 0);
 #endif
-        tree_map_set(map, 1, (void *) "This is the second element in the map");
+        int secondElement = rand();
+        tree_map_set(map, secondElement, "This is the second element in the map");
 #ifdef ASSERT
-        assert(strcmp((char *) tree_map_get(map, 0), "Hello, world!") == 0);
-        assert(strcmp((char *) tree_map_get(map, 1), "This is the second element in the map") == 0);
+        assert(strcmp((char *) tree_map_get(map, helloWorld), "Hello, world!") == 0);
+        assert(strcmp((char *) tree_map_get(map, secondElement), "This is the second element in the map") == 0);
+        assert(tree_map_size(map) == 2);
+#endif
+        tree_map_remove(map, secondElement);
+#ifdef ASSERT
+        assert(strcmp((char *) tree_map_get(map, helloWorld), "Hello, world!") == 0);
+        assert(tree_map_get(map, secondElement) == NULL);
+        assert(tree_map_size(map) == 1);
 #endif
     }
     printf("Finished without errors!\n");
